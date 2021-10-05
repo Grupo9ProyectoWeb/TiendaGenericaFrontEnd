@@ -1,0 +1,25 @@
+h1 {
+	color:white;
+	font:58px;
+	font-weight:500;
+	background-color:#F71929;
+	font-size:9;
+	}
+
+Usu{
+	display:block;
+	with:100%;
+	margin:0 0 30px 0;
+	float:none;
+}
+menu, thead{
+	color:green;
+	background-color:white;
+}
+h2{
+	color:black;
+	font:50px;
+	font-weight:500;
+	font-size:2;
+	
+}

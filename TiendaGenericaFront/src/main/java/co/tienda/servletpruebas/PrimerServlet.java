@@ -31,18 +31,14 @@ public class PrimerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PrintWriter salida=response.getWriter();
+		//PrintWriter salida=response.getWriter();
 		//Aqui voy a generar la respuesta
-		salida.println("<html><body>");
-		salida.println("<h1 style='text-align:center'>PruebaServlet</h1>");
-		salida.println("");
-		salida.println("");
-		salida.println("");
-		salida.println("");
-		salida.println("La fecha y la hora del sistemas es: "+new Date());
-		salida.println("</body></html>");
-				
-				
+		String usuario= request.getParameter("usuario");
+		String password= request.getParameter("password");
+		PrintWriter writer= response.getWriter();
+		if(usuario.equals("") || password.equals("") ) {
+			writer.println("Error: El nombre o la cedula ha faltado");
+			}	
 	}
 
 	/**
