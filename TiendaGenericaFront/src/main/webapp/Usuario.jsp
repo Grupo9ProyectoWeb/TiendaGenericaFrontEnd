@@ -8,12 +8,11 @@
 <link rel="stylesheet" href="DiseñoB.css">
 </head>
 <body>
-	<h1 align="center">Tienda Generica</h1>
-	<div class="men" align="left"><table class="menu" border="1">	
+	<div class="men" align="left"><table class="menu" border="1">
 <tr><th scope="row"><a href="Usuario.jsp">Usuario</a></th><th><a href="Cliente.jsp">Cliente</a></th><th><a href="Proveedor.jsp">Proveedor</a></th><th><a href="Producto.jsp">Productos</a></th><th><a href="Ventas.jsp">Ventas</a></th><th><a href="Reportes.jsp">Reportes</a></th></tr>
 </table></div><br>
 
-	<div align="center"><form action="Resultados.jsp" method="post">	
+	<div align="center"><form action="ServletGestionUsuario.java" method="post">	
 		<table><tr><td>Cedula:</td> <td><input type="text" name="txtCedulaUsuario"></td> <td> Usuario:</td> <td> <input type="text" name="txtUsuario"></td></tr>
 		<tr><td>Nombre Completo:</td> <td><input type="text" name="txtNombreUsuario"></td> <td>Contraseña:</td> <td> <input type="text" name="txtPasswordUsuario"></td></tr>	
 		<tr><td>Correo Electronico:</td> <td><input type="text" name="txtEmailUsuario"></td></tr>

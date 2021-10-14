@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="DiseñoB.css">
 </head>
 <body>
-<h1 align="center">Tienda Generica</h1>
 	<div class="men" align="left"><table class="menu" border="1">
 	<tr><th scope="row"><a href="Usuario.jsp">Usuario</a></th><th><a href="Cliente.jsp">Cliente</a></th><th><a href="Proveedor.jsp">Proveedor</a></th><th><a href="Producto.jsp">Productos</a></th><th><a href="Ventas.jsp">Ventas</a></th><th><a href="Reportes.jsp">Reportes</a></th></tr>
 </table></div><br>

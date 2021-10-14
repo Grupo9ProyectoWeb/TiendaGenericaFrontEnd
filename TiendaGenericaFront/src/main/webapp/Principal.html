@@ -5,17 +5,20 @@
 <title>Tienda Generica</title>
 <link rel="stylesheet" href="Diseño.css">
 </head>
-<body>
+<body bgcolor="gray">
 	<h1 align="center">Bienvenido a la Tienda Generica </h1>
+	<tr></tr><tr></tr>
+	<h2 align="center"> Login</h2>
+	<tr></tr><tr></tr>
 	
-	<div align="center"><form name="Principal" action="Usuario.jsp">
+	<div align="center"><form action="ServletLogin.java" method="post">
 	<table>
 	<tr>
-		<td>Usuario		:</td>		<td><input type="text" name="txtUso"	/></td></tr>
+		<td>Usuario		:</td>		<td><input type="text" name="usuario" method="post"	/></td></tr>
 		<tr></tr><tr></tr>
-		<td>Contraseña	:</td>		<td><input type="password" 	name="txtpass"/></td>
-		<tr><td></td><td><input type="submit" 	name="btnAceptar" /></td>
-		<td><input type="reset" 	name="btnCancelar" 	/></td></tr>
+		<td>Contraseña	:</td>		<td><input type="password" 	name="password" method="post"/></td>
+		<tr><td></td>
+		<td><input type="submit" 	value="Iniciar Sesion" /></td>
 	</table>
 	</form>
 	</div>
