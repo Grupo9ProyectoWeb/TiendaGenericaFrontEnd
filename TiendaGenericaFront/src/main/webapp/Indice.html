@@ -5,22 +5,31 @@
 <title>Tienda Generica</title>
 <link rel="stylesheet" href="Diseño.css">
 </head>
-<body>	
-		<h1 align="center">Bienvenido a Tienda Generica</h1>
-		<ul>
-		<li >
-			<form action="Principal.jsp" method="post">
-			<input type="button" name="Principal" value="Ingresar al aplicativo">
-			</form>
-			<a href="Principal.jsp">Ingresar al aplicativo</a>
-		</li>
-		<li >
-			<a href="Usuario.jsp">Registrar Usuario</a>
-		</li>
-		</ul>
-		<form action="Usuario.jsp" method="post">
-		<input type="button" name="Usuario" value="Usuario" />
-		</form> 
+<body bgcolor="gray">
+<h1 align="center">Bienvenido a la Tienda Generica </h1>
+	<tr></tr><tr></tr>
+	<h2 align="center"> Login</h2>
+	<tr></tr><tr></tr>
+	
+	<div class="login">
+		<align="center"><form action="ServletLogin" method="post">
+	<table>
+	<tr>
+		<form action="usuario" method="post">
+		<input type="hidden" name="tipo" value="iniciarSesion" />
+		
+		<label for = "usuario">usuario</label>
+		<input type = "text" name="nombre" > 
+		
+
+		<label for = "clave">clave</label>
+		<input type = "password" name="clave" >
+		<br><br>
+		<td><input type="submit" 	value="Iniciar Sesion" /></td>
+		
+	</table>
+	</form>
+	</div>
 
 </body>
 </html>

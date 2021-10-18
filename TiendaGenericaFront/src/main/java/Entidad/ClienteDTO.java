@@ -1,24 +1,23 @@
 package Entidad;
 
-public class UsuarioDTO {
-
-	 private int documento;
+public class ClienteDTO {
+	private int documento;
 	 private String nomcompleto;
-	 private String clave;
-	 private String usuario;
+	 private String telefono;
+	 private String direccion;
 	 private String email;
 	
-	public UsuarioDTO(int documento, String nomcompleto, String clave, String usuario, String email) {
+	public ClienteDTO(int documento, String nomcompleto, String telefono, String direccion, String email) {
 		super();
 		this.documento = documento;
 		this.nomcompleto = nomcompleto;
-		this.clave = clave;
-		this.usuario = usuario;
+		this.telefono = telefono;
+		this.direccion = direccion;
 		this.email = email;
 	}
 	
 
-public UsuarioDTO(int documento) {
+public ClienteDTO(int documento) {
 		this.documento = documento;
 		
 }
@@ -36,17 +35,17 @@ public UsuarioDTO(int documento) {
 	public void setNomcompleto(String nomcompleto) {
 		this.nomcompleto = nomcompleto;
 	}
-	public String getClave() {
-		return clave;
+	public String getTelefono() {
+		return telefono;
 	}
-	public void setClave(String clave) {
-		this.clave = clave;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
-	public String getUsuario() {
-		return usuario;
+	public String getDireccion() {
+		return direccion;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 	public String getEmail() {
 		return email;
@@ -55,5 +54,6 @@ public UsuarioDTO(int documento) {
 		this.email = email;
 	}
 	 
+
 
 }

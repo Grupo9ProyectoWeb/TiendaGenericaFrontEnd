@@ -36,7 +36,7 @@ public class ServletLogin extends HttpServlet{
 
 		if (login == null) {
 			request.setAttribute("mensaje", "Error nombre de usuario y/o clave");
-			request.getRequestDispatcher("Principal.html").forward(request, response);
+			request.getRequestDispatcher("Indice.html").forward(request, response);
 		} else {
 			HttpSession sesion = request.getSession();
 			sesion.setAttribute("usuario", login);
@@ -48,7 +48,7 @@ public class ServletLogin extends HttpServlet{
 		HttpSession sesion = request.getSession();
 		sesion.invalidate();
 		request.setAttribute("mensaje", "Iniciar sesion");
-		request.getRequestDispatcher("Principal.html").forward(request, response);
+		request.getRequestDispatcher("Indice.html").forward(request, response);
 	}
 
 }

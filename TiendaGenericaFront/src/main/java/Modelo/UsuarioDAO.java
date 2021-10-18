@@ -26,10 +26,10 @@ public class UsuarioDAO {
 			if(usu==null) {
 				ps=cnn.prepareStatement("INSERT INTO usuario VALUES(?,?,?,?,?)");
 				ps.setInt(1, us.getDocumento());
-				ps.setString(2, us.getNomusuario());
+				ps.setString(2, us.getNomcompleto());
 				ps.setString(3, us.getClave());
-				ps.setString(4, us.getRol());
-				ps.setString(5, us.getEstado());
+				ps.setString(4, us.getUsuario());
+				ps.setString(5, us.getEmail());
 				x=ps.executeUpdate();
 					if(x>0) {
 						dat="r";
@@ -90,14 +90,14 @@ public class UsuarioDAO {
 	public boolean actualizar(UsuarioDTO us) {
 		boolean dat=false;
 		JOptionPane.showMessageDialog(null, "dao"+us.getDocumento());
-		JOptionPane.showMessageDialog(null, us.getNomusuario());
+		JOptionPane.showMessageDialog(null, us.getNomcompleto());
 		int x;
 		try {
-			ps=cnn.prepareStatement("UPDATE usuario SET nomusuario=?,clave=?,rol=?,estado=? WHERE documento=?");
-		    ps.setString(1, us.getNomusuario());
+			ps=cnn.prepareStatement("UPDATE usuario SET nomcompleto=?,clave=?,usuario=?,email=? WHERE documento=?");
+		    ps.setString(1, us.getNomcompleto());
 		    ps.setString(2, us.getClave());
-		    ps.setString(3, us.getRol());
-		    ps.setString(4, us.getEstado());
+		    ps.setString(3, us.getUsuario());
+		    ps.setString(4, us.getEmail());
 		    ps.setInt(5, us.getDocumento());
 		    x=ps.executeUpdate();
 		    if(x>0) {

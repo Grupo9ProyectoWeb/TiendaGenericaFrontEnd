@@ -5,23 +5,21 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-import Entidad.UsuarioDTO;
-import Modelo.UsuarioDAO;
+import Entidad.ClienteDTO;
+import Modelo.ClienteDAO;
 
-@WebServlet("/ServletGestionUsuario")
-public class ServletGestionUsuario extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+public class ServletGestionCliente extends HttpServlet{
+private static final long serialVersionUID = 1L;
     
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletGestionUsuario() {
+    public ServletGestionCliente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -66,27 +64,27 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	String u,c,r,e;
 	int d;
 	String res;
-	UsuarioDTO usdto;
-	UsuarioDAO usdao;
-	UsuarioDTO recdatos;
+	ClienteDTO cldto;
+	ClienteDAO cldao;
+	ClienteDTO recdatos;
 	
 	if(request.getParameter("btnins")!=null) {
-	d=Integer.parseInt(request.getParameter("txtCedulaUsuario"));
-	u=request.getParameter("txtUsuario");
-	c=request.getParameter("txtPasswordUsuario");
-	r=request.getParameter("txtNombreUsuario");
-	e=request.getParameter("txtEmailUsuario");
+	d=Integer.parseInt(request.getParameter("txtCedulaCliente"));
+	u=request.getParameter("txtDireccionCliente");
+	c=request.getParameter("txtTelefonoCliente");
+	r=request.getParameter("txtNombreCliente");
+	e=request.getParameter("txtEmailCliente");
 	
-	usdto=new UsuarioDTO(d, u, c, r, e);
-	usdao=new UsuarioDAO();
-	res=usdao.insertarusuario(usdto);
+	cldto=new ClienteDTO(d, u, c, r, e);
+	cldao=new ClienteDAO();
+	res=cldao.insertarcliente(cldto);
 	if(res.equals("res,d")) {
-		JOptionPane.showMessageDialog(null, "Usuario registrado", res, d);
-		response.sendRedirect("Usuario.jsp");
+		JOptionPane.showMessageDialog(null, "Cliente registrado", res, d);
+		response.sendRedirect("Cliente.jsp");
 	}
 	else {
-		JOptionPane.showMessageDialog(null, "Usuario registrado");
-		response.sendRedirect("Usuario.jsp");
+		JOptionPane.showMessageDialog(null, "Cliente registrado");
+		response.sendRedirect("Cliente.jsp");
 	}
 			
 	}
@@ -95,39 +93,39 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	//Acci�n para consultar
 	 int doc;
 	 
-	 d=Integer.parseInt(request.getParameter("txtCedulaUsuario"));
-	 usdto=new UsuarioDTO(d);
-	 usdao=new UsuarioDAO();
-	 recdatos=usdao.consultarusuario(usdto);
+	 d=Integer.parseInt(request.getParameter("txtCedulaCliente"));
+	 cldto=new ClienteDTO(d);
+	 cldao=new ClienteDAO();
+	 recdatos=cldao.consultarcliente(cldto);
 	 doc=recdatos.getDocumento();
 	 u=recdatos.getNomcompleto();
-	 c=recdatos.getClave();
-	 r=recdatos.getUsuario();
+	 c=recdatos.getTelefono();
+	 r=recdatos.getDireccion();
 	 e=recdatos.getEmail();
 			 
-	 response.sendRedirect("Usuario.jsp?txtCedulaUsuario="+doc+"&&txtUsuario="+u+"&&txtPasswordUsuario="+c+"&&txtNombreUsuario="+r+"&&txtEmailUsuario="+e);
+	 response.sendRedirect("Cliente.jsp?txtCedulaCliente="+doc+"&&txtDireccionCliente="+u+"&&txtTelefonoCliente="+c+"&&txtNombreCliente="+r+"&&txtEmailCliente="+e);
 		
 	}	
 	if(request.getParameter("btnact")!=null) {
 		//Acci�n para actualizar un usuraio
 	  boolean dat;
-	  d=Integer.parseInt(request.getParameter("txtCedulaUsuario"));
-	  u=request.getParameter("txtUsuario");
-	  c=request.getParameter("txtPasswordUsuario");
-	  r=request.getParameter("txtNombreUsuario");
-	  e=request.getParameter("txtEmailUsuario");
+	  d=Integer.parseInt(request.getParameter("txtCedulaCliente"));
+	  u=request.getParameter("txtDireccionCliente");
+	  c=request.getParameter("txtTelefonoCliente");
+	  r=request.getParameter("txtNombreCliente");
+	  e=request.getParameter("txtEmailCliente");
 	  JOptionPane.showMessageDialog(null, "DOCUMENTO"+d);
-	  usdto=new UsuarioDTO(d, u, c, r, e);
-	  usdao=new UsuarioDAO();
-	  dat=usdao.actualizar(usdto);
+	  cldto=new ClienteDTO(d, u, c, r, e);
+	  cldao=new ClienteDAO();
+	  dat=cldao.actualizar(cldto);
 		if(dat==true) {
-			JOptionPane.showMessageDialog(null, "El usuario se actualizo");
-			response.sendRedirect("Usuario.jsp");
+			JOptionPane.showMessageDialog(null, "El cliente se actualizo");
+			response.sendRedirect("Cliente.jsp");
 		}
 	  
 		else {
 			JOptionPane.showMessageDialog(null, "El usuario no se actualizo");
-		     response.sendRedirect("Usuario.jsp");
+		     response.sendRedirect("Cliente.jsp");
 		
 		}
 		
@@ -137,34 +135,29 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	if(request.getParameter("btneli")!=null) {
 		//Acci�n para eliminar
 		int y;
-		d=Integer.parseInt(request.getParameter("txtCedulaUsuario"));
-		 usdto=new UsuarioDTO(d);
-		 usdao=new UsuarioDAO();
-		 y=usdao.eliminar(usdto);
+		d=Integer.parseInt(request.getParameter("txtCedulaCliente"));
+		 cldto=new ClienteDTO(d);
+		 cldao=new ClienteDAO();
+		 y=cldao.eliminar(cldto);
 		 if(y>0) {
-		    JOptionPane.showMessageDialog(null, "El usuario fue eliminado");
-		    response.sendRedirect("Usuario.jsp");
+		    JOptionPane.showMessageDialog(null, "El cliente fue eliminado");
+		    response.sendRedirect("Cliente.jsp");
 			 
 		 }
 		 else {
-			 JOptionPane.showMessageDialog(null, "El usuario NO fue eliminado");
-			 response.sendRedirect("Usuario.jsp");
+			 JOptionPane.showMessageDialog(null, "El cliente NO fue eliminado");
+			 response.sendRedirect("Cliente.jsp");
 		 }
 		
 		
 		
 	}
 	
-	ArrayList<UsuarioDTO> lista=new ArrayList<UsuarioDTO>();
-	usdao=new UsuarioDAO();
-	lista=usdao.consultar();
+	ArrayList<ClienteDTO> lista=new ArrayList<ClienteDTO>();
+	cldao=new ClienteDAO();
+	lista=cldao.consultar();
 	 try ( PrintWriter out = response.getWriter()) {
 	 out.println("<select> <option> " + request.getContextPath() + "</option></select>");
-	 }
-	
-	
-	
+	 }	
 }
-	
-
 }
